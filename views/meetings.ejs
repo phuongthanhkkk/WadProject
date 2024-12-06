@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Meetings</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+    <div class="container">
+        <h2>Your Meetings <form action="/logout" method="post"><button type="submit">Log out</button></form></h2>
+        <form action="/meetings/create" method="post">
+            <input type="text" name="name" placeholder="Meeting Name" required><br>
+            <input type="text" name="description" placeholder="Description"><br>
+            <button type="submit">Create Meeting</button>
+        </form>
+        <% if (meetings && meetings.length) { %>
+            <ul>
+            <% meetings.forEach(function(meeting) { %>
+                <li>
+                    <%= meeting.name %> - <%= meeting.description %>
+                    <a href="https://glory-buttercup-wolverine.glitch.me/#<%= meeting.id %>" target="_blank">Join</a>
+                    <button onclick="copyMeetingLink('<%= meeting.id %>')">Copy Link</button>
+                    <form action="/meetings/delete/<%= meeting.id %>" method="post" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            <% }) %>
+            </ul>
+        <% } else { %>
+            <p>No meetings created yet.</p>
+        <% } %>
+    </div>
+    <script>
+        function copyMeetingLink(id) {
+            const url = 'https://glory-buttercup-wolverine.glitch.me/#' + id;
+            navigator.clipboard.writeText(url).then(
+                () => alert('Meeting link copied to clipboard!'),
+                () => alert('Failed to copy to clipboard.')
+            );
+        }
+    </script>
+</body>
+</html>
