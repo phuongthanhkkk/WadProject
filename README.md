@@ -1,1 +1,1 @@
-Landing page: https://burnt-pastoral-woolen.glitch.me/
+Landing page: https://abundant-rambunctious-apple.glitch.me/
