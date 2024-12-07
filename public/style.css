@@ -67,16 +67,22 @@ a{
     transform: rotate(180deg);
 }
 
-.form{
+/* .form{
     height: 100vh;
     display: grid;
     justify-content: center;
     align-items: center;
     padding: 0 1rem;
     
-}
+} */
 
-.container { max-width: 800px; margin: auto; padding: 20px; }
+.container { max-width: 800px; margin: auto; padding: 20px; 
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+}
 
 .form__title{
     font-size: var(--big-font-size);
@@ -188,7 +194,7 @@ transition: .5;
         right: -6.5rem;
     }
 
-    .form{
+    .container{
         grid-template-columns: 1.5fr 1fr;
         padding: 0 2rem;
     }
